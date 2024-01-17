@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,7 +10,7 @@ typedef struct {
 } InputBuffer;
 
 InputBuffer *new_input_buffer() {
-  InputBuffer *input_buffer = (InputBuffer *)malloc(sizeof(InputBuffer));
+  InputBuffer *input_buffer = malloc(sizeof(InputBuffer));
   input_buffer->buffer = NULL;
   input_buffer->buffer_length = 0;
   input_buffer->input_length = 0;
@@ -40,7 +41,7 @@ void close_input_buffer(InputBuffer *input_buffer) {
 
 int main(int argc, char *argv[]) {
   InputBuffer *input_buffer = new_input_buffer();
-  while (1) { // Or use while(true) with #include <stdbool.h> for true keyword.
+  while (true) {
     print_prompt();
     read_input(input_buffer);
 
